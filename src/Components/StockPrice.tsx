@@ -1,5 +1,5 @@
 import React from "react";
-import { CoinMarketCapAPI } from "../services/coinmarketcap.services";
+import { CoinGecko } from "../services/axios.services";
 import { IStock } from "../@types/stocklist";
 import {
 	LineChart,
@@ -30,7 +30,7 @@ function StockPrice() {
 
 	React.useEffect(() => {
 		const abortController = new AbortController();
-		CoinMarketCapAPI.get(
+		CoinGecko.get(
 			`coins/${coinValue}/market_chart?vs_currency=usd&days=30&interval=daily`
 		)
 			.then((response: { data: IStock[] }) => {
@@ -66,6 +66,7 @@ function StockPrice() {
 		error && <h1>{error}</h1>;
 	}
 
+	//TODO Add types for graph
 	return (
 		<div className="App">
 			<div

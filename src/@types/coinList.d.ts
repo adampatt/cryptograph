@@ -26,15 +26,3 @@ export interface ICoinList {
 	roi: Roi | null;
 	last_updated: Date;
 }
-
-export interface IRoi {
-	times: number;
-	currency: Currency;
-	percentage: number;
-}
-
-export enum ICurrency {
-	Btc = "btc",
-	Eth = "eth",
-	Usd = "usd",
-}

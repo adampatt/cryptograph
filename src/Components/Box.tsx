@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import StockPrice from "./StockPrice";
 import CurrencyList from "./CurrencyList";
 

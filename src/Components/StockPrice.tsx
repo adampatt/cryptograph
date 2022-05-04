@@ -79,21 +79,22 @@ function StockPrice() {
 				border-indigo-600
 				flex
 				justify-left
+				max-h-screen
 				"
 			>
-				<div className="w-2/3 border-solid border-2 border-yellow-600 flex-col ">
-					<div className="w-full border-solid border-2 border-red-600 flex justify-center pb-2">
-						<h1> Header </h1>
+				<div className="w-2/3 border-solid border-2 flex-col max-h-screen relative">
+					<div className="w-full border-solid border-2  flex justify-center pb-2 h-2/8">
+						<h1 className="text-4xl"> Header </h1>
 					</div>
-					<div className="w-full border-solid border-2 border-red-600 flex justify-center py-24">
+					<div className="w-full border-solid border-2 flex justify-center ">
 						<ResponsiveContainer
-							width={700}
+							width={800}
 							height={800}
 						>
 							<LineChart
 								data={newD}
 								margin={{
-									top: 15,
+									top: 150,
 									right: 30,
 									left: 30,
 									bottom: 30,

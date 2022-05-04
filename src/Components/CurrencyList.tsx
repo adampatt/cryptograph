@@ -3,10 +3,10 @@ import React from "react";
 const CurrencyList = () => {
 	return (
 		<div>
-			<p>Inner Box</p>
+			{/* <p>Inner Box</p>
 			<ul>
 				<li>Coin list to go here</li>
-			</ul>
+			</ul> */}
 		</div>
 	);
 };

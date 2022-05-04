@@ -1,7 +1,5 @@
 import * as React from "react";
-import axios from "axios";
 import { CoinGecko } from "../services/axios.services";
-import { coinListName } from "../helpers";
 import { ICoinList } from "../@types/coinList";
 
 const defaultCoinList: ICoinList[] = [];
@@ -58,16 +56,10 @@ function Display() {
 	return (
 		<div className="App">
 			<>
-				{/* <h1>DisplayContainer</h1>
-				<h1>{JSON.stringify(data)}</h1>
-				<h1 className="text-4xl font-bold underline">
-					{coinName}
-				</h1> */}
-				{/* {Object.values(newData).map((a) => (
-					<>
-						<h1 onClick={() => setCoinName(a)}>{a}</h1>
-					</>
-				))} */}
+				<h1>DisplayContainer</h1>
+				{data.map((d) => (
+					<p key={d.id}>{d.id}</p>
+				))}
 			</>
 		</div>
 	);

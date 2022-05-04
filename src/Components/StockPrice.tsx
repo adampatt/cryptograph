@@ -70,67 +70,50 @@ function StockPrice() {
 
 	//TODO Add types for graph
 	return (
-		<div className="App">
-			<div
-				className="
-				w-full
-				border-solid
-				border-2
-				border-indigo-600
-				flex
-				justify-left
-				max-h-screen
-				"
-			>
-				<div className="w-2/3 border-solid border-2 flex-col max-h-screen relative">
-					<div className="w-full border-solid border-2  flex justify-center pb-2 h-2/8">
-						<h1 className="text-4xl"> Header </h1>
-					</div>
-					<div className="w-full border-solid border-2 flex justify-center ">
-						<ResponsiveContainer
-							width={800}
-							height={800}
-						>
-							<LineChart
-								data={newD}
-								margin={{
-									top: 150,
-									right: 30,
-									left: 30,
-									bottom: 30,
-								}}
-							>
-								<CartesianGrid strokeDasharray="3 3" />
-								<XAxis
-									dataKey="day"
-									label={{
-										value:
-											"Date displayed in DD/MM/YY format",
-										position: "insideBottom",
-										offset: -50,
-									}}
-								/>
-								<YAxis
-									label={{
-										value: "Price in USD",
-										angle: -90,
-										position: "insideLeft",
-										offset: -20,
-									}}
-								/>
-								<Tooltip />
-								<Legend />
-								<Line
-									type="monotone"
-									name="$"
-									dataKey="price"
-									stroke="#8884d8"
-									activeDot={{ r: 8 }}
-								/>
-							</LineChart>
-						</ResponsiveContainer>
-					</div>
-				</div>
+		<div className="w-2/3 border-solid border-2 flex-col max-h-screen relative">
+			<div className="w-full border-solid border-2  flex justify-center pb-2 h-2/8">
+				<h1 className="text-4xl"> Header </h1>
+			</div>
+			<div className="w-full border-solid border-2 flex justify-center ">
+				<ResponsiveContainer width={800} height={800}>
+					<LineChart
+						data={newD}
+						margin={{
+							top: 150,
+							right: 30,
+							left: 30,
+							bottom: 30,
+						}}
+					>
+						<CartesianGrid strokeDasharray="3 3" />
+						<XAxis
+							dataKey="day"
+							label={{
+								value:
+									"Date displayed in DD/MM/YY format",
+								position: "insideBottom",
+								offset: -50,
+							}}
+						/>
+						<YAxis
+							label={{
+								value: "Price in USD",
+								angle: -90,
+								position: "insideLeft",
+								offset: -20,
+							}}
+						/>
+						<Tooltip />
+						<Legend />
+						<Line
+							type="monotone"
+							name="$"
+							dataKey="price"
+							stroke="#8884d8"
+							activeDot={{ r: 8 }}
+						/>
+					</LineChart>
+				</ResponsiveContainer>
 			</div>
 		</div>
 	);

@@ -50,7 +50,7 @@ function Display() {
 		};
 	}, []);
 
-	let newData = coinListName(data);
+	// let newData = coinListName(data);
 	//TODO error here when passing values into context
 	//TODO holds both current coinName, currency, days, interval, passed data and setState down into list component and stockPrice component gets only values.
 	//TODO context can just pass down state values and setState functions
@@ -59,13 +59,15 @@ function Display() {
 		<div className="App">
 			<>
 				<h1>DisplayContainer</h1>
-				<h1>{JSON.stringify(newData)}</h1>
-				<h1>{coinName}</h1>
-				{Object.values(newData).map((a) => (
+				<h1>{JSON.stringify(data)}</h1>
+				<h1 className="text-4xl font-bold underline">
+					{coinName}
+				</h1>
+				{/* {Object.values(newData).map((a) => (
 					<>
 						<h1 onClick={() => setCoinName(a)}>{a}</h1>
 					</>
-				))}
+				))} */}
 			</>
 		</div>
 	);

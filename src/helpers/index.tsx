@@ -26,13 +26,25 @@ export const dataTransform = (ds: any) => {
 	return final;
 };
 
-export const coinListName = (
-	data: ICoinList[]
-) => {
+// export const coinListName = (
+// 	data: ICoinList[]
+// ) => {
+// 	let result = [];
+// 	for (let val of Object.values(data)) {
+// 		let coinName = val.name;
+// 		result.push(coinName);
+// 	}
+// 	return result;
+// };
+
+export const coinListName: (
+	data: Array<number>[]
+) => Array<number>[] = function (
+	data: Array<number>[]
+): Array<number>[] {
 	let result = [];
 	for (let val of Object.values(data)) {
-		let coinName = val.name;
-		result.push(coinName);
+		result.push(val);
 	}
 	return result;
 };

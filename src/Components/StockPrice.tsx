@@ -8,6 +8,8 @@ import {
 	YAxis,
 	Tooltip,
 	Legend,
+	CartesianGrid,
+	ResponsiveContainer,
 } from "recharts";
 import { priceAndDateData } from "../helpers/index";
 
@@ -70,28 +72,64 @@ function StockPrice() {
 	return (
 		<div className="App">
 			<div
-				style={{
-					width: "500px",
-					height: "500px",
-					border: "1px, solid, black",
-					margin: "40px, 20px, 10px, 300px	",
-				}}
+				className="
+				w-full
+				border-solid
+				border-2
+				border-indigo-600
+				flex
+				justify-left
+				"
 			>
-				<LineChart
-					width={400}
-					height={400}
-					data={newD}
-				>
-					<XAxis dataKey="day" />
-					<YAxis />
-					<Tooltip />
-					<Legend />
-					<Line
-						type="monotone"
-						dataKey="price"
-						stroke="#8884d8"
-					/>
-				</LineChart>
+				<div className="w-2/3 border-solid border-2 border-yellow-600 flex-col ">
+					<div className="w-full border-solid border-2 border-red-600 flex justify-center pb-2">
+						<h1> Header </h1>
+					</div>
+					<div className="w-full border-solid border-2 border-red-600 flex justify-center py-24">
+						<ResponsiveContainer
+							width={700}
+							height={800}
+						>
+							<LineChart
+								data={newD}
+								margin={{
+									top: 15,
+									right: 30,
+									left: 30,
+									bottom: 30,
+								}}
+							>
+								<CartesianGrid strokeDasharray="3 3" />
+								<XAxis
+									dataKey="day"
+									label={{
+										value:
+											"Date displayed in DD/MM/YY format",
+										position: "insideBottom",
+										offset: -50,
+									}}
+								/>
+								<YAxis
+									label={{
+										value: "Price in USD",
+										angle: -90,
+										position: "insideLeft",
+										offset: -20,
+									}}
+								/>
+								<Tooltip />
+								<Legend />
+								<Line
+									type="monotone"
+									name="$"
+									dataKey="price"
+									stroke="#8884d8"
+									activeDot={{ r: 8 }}
+								/>
+							</LineChart>
+						</ResponsiveContainer>
+					</div>
+				</div>
 			</div>
 		</div>
 	);

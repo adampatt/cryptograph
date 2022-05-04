@@ -58,11 +58,11 @@ function Display() {
 	return (
 		<div className="App">
 			<>
-				<h1>DisplayContainer</h1>
+				{/* <h1>DisplayContainer</h1>
 				<h1>{JSON.stringify(data)}</h1>
 				<h1 className="text-4xl font-bold underline">
 					{coinName}
-				</h1>
+				</h1> */}
 				{/* {Object.values(newData).map((a) => (
 					<>
 						<h1 onClick={() => setCoinName(a)}>{a}</h1>

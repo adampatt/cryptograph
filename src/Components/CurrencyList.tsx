@@ -2,14 +2,12 @@ import React from "react";
 
 const CurrencyList = () => {
 	return (
-		<div
-			className="w-1/3 border-solid
-			border-2
-			border-pink-600"
-		>
-			<h1 className="text-4xl">Select a coin</h1>
+		<div className="w-1/3">
+			<div className="flex justify-center">
+				<h1 className="text-4xl">Select a coin</h1>
+			</div>
 			<div className="flex justify-center pt-4">
-				<div className="bg-white rounded-lg border border-gray-200 w-96 text-gray-900">
+				<div className="bg-white rounded-lg  w-96 text-gray-900">
 					{data.slice(0, 20).map((d) => (
 						<button
 							key={d}

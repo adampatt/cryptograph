@@ -56,10 +56,9 @@ function Display() {
 	return (
 		<div className="App">
 			<>
-				<h1>DisplayContainer</h1>
-				{data.map((d) => (
-					<p key={d.id}>{d.id}</p>
-				))}
+				<h1 className="text-4xl">
+					CryptoCurrency coin history
+				</h1>
 			</>
 		</div>
 	);

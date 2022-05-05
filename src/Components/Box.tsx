@@ -6,13 +6,14 @@ export const Box = () => {
 	return (
 		<div
 			className="
-			container mx-auto
+			container 
+			w-full
 			border-solid
 			border-2
-			border-indigo-600
 			display
 			flex
-			flex-row
+			flex-col
+			md:flex-row xl 
 			"
 		>
 			<StockPrice />

@@ -70,16 +70,20 @@ function StockPrice() {
 
 	//TODO Add types for graph
 	return (
-		<div className="w-2/3 border-solid border-2 flex-col max-h-screen relative">
-			<div className="w-full border-solid border-2  flex justify-center pb-2 h-2/8">
+		<div className="w-2/3 flex-col max-h-screen relative">
+			<div className="w-full  flex justify-center pb-2 h-2/8">
 				<h1 className="text-4xl"> Header </h1>
 			</div>
-			<div className="w-full border-solid border-2 flex justify-center ">
-				<ResponsiveContainer width={800} height={800}>
+			<div className="w-full flex justify-center ">
+				<ResponsiveContainer
+					width="80%"
+					height="80%"
+					aspect={1}
+				>
 					<LineChart
 						data={newD}
 						margin={{
-							top: 150,
+							top: 30,
 							right: 30,
 							left: 30,
 							bottom: 30,
@@ -93,6 +97,7 @@ function StockPrice() {
 									"Date displayed in DD/MM/YY format",
 								position: "insideBottom",
 								offset: -50,
+								fontSize: "16",
 							}}
 						/>
 						<YAxis
@@ -101,6 +106,7 @@ function StockPrice() {
 								angle: -90,
 								position: "insideLeft",
 								offset: -20,
+								fontSize: "16",
 							}}
 						/>
 						<Tooltip />

@@ -4,9 +4,12 @@ import { ICoinList } from "../@types/coinList";
 
 const defaultCoinList: ICoinList[] = [];
 
+interface MappedData {
+	id: string;
+	name: string;
+}
+
 function Display() {
-	const [coinName, setCoinName] =
-		React.useState("bitcoin");
 	const [data, setData]: [
 		ICoinList[],
 		(data: ICoinList[]) => void
@@ -48,14 +51,15 @@ function Display() {
 		};
 	}, []);
 
-	// let newData = coinListName(data);
-	//TODO error here when passing values into context
-	//TODO holds both current coinName, currency, days, interval, passed data and setState down into list component and stockPrice component gets only values.
-	//TODO context can just pass down state values and setState functions
+	let newData = data.map((d) => {
+		return [d.id, d.name];
+	});
 
 	return (
 		<div className="App">
 			<>
+				<h1>{JSON.stringify(newData)}</h1>
+				<p>{JSON.stringify(data)}</p>
 				<h1 className="text-4xl">
 					CryptoCurrency coin history
 				</h1>

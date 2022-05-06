@@ -23,7 +23,8 @@ export const Box = () => {
 			display
 			flex
 			flex-col
-			md:flex-row xl 
+			xl:flex-row
+			pt-1
 			"
 		>
 			<AppCtx.Provider value={coinNameState}>

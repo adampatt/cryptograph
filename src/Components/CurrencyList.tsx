@@ -76,7 +76,7 @@ const CurrencyList = () => {
 			<div className="flex justify-center">
 				<h1 className="text-4xl">Select a coin</h1>
 			</div>
-			<div className="flex justify-center pt-4">
+			<div className="flex xl:flex-row justify-center pt-4">
 				<div className="bg-white rounded-lg  w-96 text-gray-900">
 					{newData.slice(0, 20).map((d) => (
 						<button

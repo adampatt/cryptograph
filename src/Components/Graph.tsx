@@ -73,7 +73,7 @@ function Graph() {
 	}
 
 	return (
-		<div className="w-2/3 flex-col max-h-screen relative">
+		<div className="w-2/3 xl:w-full flex-col max-h-screen relative">
 			<div className="w-full  flex justify-center pb-2 h-2/8">
 				<h1 className="text-4xl">
 					{appContext?.coinName}
@@ -113,6 +113,12 @@ function Graph() {
 								offset: -20,
 								fontSize: "16",
 							}}
+							type="number"
+							domain={[
+								0,
+								(dataMax: number) =>
+									Math.ceil(dataMax * 1.3),
+							]}
 						/>
 						<Tooltip />
 						<Legend />

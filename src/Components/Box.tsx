@@ -1,24 +1,14 @@
 import * as React from "react";
-import StockPrice from "./StockPrice";
+import Graph from "./Graph";
 import CurrencyList from "./CurrencyList";
-import { CoinNameContext } from "../context/coinDataContext";
-
-//Box is the container
-interface AppContextInterface {
-	coinName: String;
-	setCoinName: any;
-}
-
-export const AppCtx =
-	React.createContext<AppContextInterface | null>(
-		null
-	);
+import { AppCtx } from "../context/coinDataContext";
+import { IAppContextInterface } from "../@types/appC";
 
 export const Box = () => {
 	const [coinName, setCoinName] =
 		React.useState<string>("bitcoin");
 
-	const sampleAppContext: AppContextInterface = {
+	const coinNameState: IAppContextInterface = {
 		coinName: coinName,
 		setCoinName: setCoinName,
 	};
@@ -36,8 +26,8 @@ export const Box = () => {
 			md:flex-row xl 
 			"
 		>
-			<AppCtx.Provider value={sampleAppContext}>
-				<StockPrice />
+			<AppCtx.Provider value={coinNameState}>
+				<Graph />
 				<CurrencyList />
 			</AppCtx.Provider>
 		</div>

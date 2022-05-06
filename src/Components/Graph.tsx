@@ -12,11 +12,11 @@ import {
 	ResponsiveContainer,
 } from "recharts";
 import { priceAndDateData } from "../helpers/index";
-import { AppCtx } from "../Components/Box";
+import { AppCtx } from "../context/coinDataContext";
 
 const defaultPosts: IStock[] = [];
 
-function StockPrice() {
+function Graph() {
 	const [posts, setPosts]: [
 		IStock[],
 		(posts: IStock[]) => void
@@ -50,7 +50,7 @@ function StockPrice() {
 				}) => {
 					const error =
 						ex.code === "ECONNABORTED"
-							? "A timeout has occurred"
+							? "A timeout has occurred please refresh the page"
 							: ex.response.status === 404
 							? "Resource Not found"
 							: "An unexpected error has occurred";
@@ -126,9 +126,8 @@ function StockPrice() {
 					</LineChart>
 				</ResponsiveContainer>
 			</div>
-			<p>{JSON.stringify(posts)}</p>
 		</div>
 	);
 }
 
-export default StockPrice;
+export default Graph;

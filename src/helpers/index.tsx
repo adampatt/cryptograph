@@ -24,15 +24,3 @@ export const dataTransform = (ds: any) => {
 	}
 	return final;
 };
-
-export const coinListName: (
-	data: Array<number>[]
-) => Array<number>[] = function (
-	data: Array<number>[]
-): Array<number>[] {
-	let result = [];
-	for (let val of Object.values(data)) {
-		result.push(val);
-	}
-	return result;
-};

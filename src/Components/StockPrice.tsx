@@ -12,8 +12,8 @@ import {
 	ResponsiveContainer,
 } from "recharts";
 import { priceAndDateData } from "../helpers/index";
+import { AppCtx } from "../Components/Box";
 
-const coinValue = "bitcoin";
 const defaultPosts: IStock[] = [];
 
 function StockPrice() {
@@ -29,6 +29,10 @@ function StockPrice() {
 		string,
 		(error: string) => void
 	] = React.useState("");
+
+	const appContext = React.useContext(AppCtx);
+	const coinValue =
+		appContext?.coinName.toLocaleLowerCase();
 
 	React.useEffect(() => {
 		const abortController = new AbortController();
@@ -57,7 +61,7 @@ function StockPrice() {
 		return () => {
 			abortController.abort();
 		};
-	}, []);
+	}, [coinValue]);
 
 	const newD = priceAndDateData(posts);
 

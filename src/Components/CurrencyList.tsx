@@ -1,10 +1,24 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import React from "react";
-
+import { AppCtx } from "../Components/Box";
 const CurrencyList = () => {
+	const appContext = React.useContext(AppCtx);
+
+	const buttonHandler = (
+		event: React.MouseEvent<HTMLButtonElement>
+	) => {
+		event.preventDefault();
+
+		const button: HTMLButtonElement =
+			event.currentTarget;
+		appContext?.setCoinName(button.name);
+	};
+
 	return (
 		<div className="w-1/3">
 			<div className="flex justify-center">
 				<h1 className="text-4xl">Select a coin</h1>
+				<h1>{appContext?.coinName} Curency lis</h1>
 			</div>
 			<div className="flex justify-center pt-4">
 				<div className="bg-white rounded-lg  w-96 text-gray-900">
@@ -12,6 +26,8 @@ const CurrencyList = () => {
 						<button
 							key={d}
 							type="button"
+							name={d}
+							onClick={buttonHandler}
 							className="
 							text-center
 							px-6

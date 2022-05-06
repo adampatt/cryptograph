@@ -65,18 +65,19 @@ function StockPrice() {
 
 	const newD = priceAndDateData(posts);
 
-	{
-		loading && <h1>Loading</h1>;
+	while (loading) {
+		return <h1>Loading</h1>;
 	}
-	{
-		error && <h1>{error}</h1>;
+	while (error) {
+		return <h1>{error}</h1>;
 	}
 
-	//TODO Add types for graph
 	return (
 		<div className="w-2/3 flex-col max-h-screen relative">
 			<div className="w-full  flex justify-center pb-2 h-2/8">
-				<h1 className="text-4xl"> Header </h1>
+				<h1 className="text-4xl">
+					{appContext?.coinName}
+				</h1>
 			</div>
 			<div className="w-full flex justify-center ">
 				<ResponsiveContainer
@@ -125,6 +126,7 @@ function StockPrice() {
 					</LineChart>
 				</ResponsiveContainer>
 			</div>
+			<p>{JSON.stringify(posts)}</p>
 		</div>
 	);
 }

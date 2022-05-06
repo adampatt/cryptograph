@@ -64,6 +64,13 @@ const CurrencyList = () => {
 		appContext?.setCoinName(button.name);
 	};
 
+	while (loading) {
+		return <h1>Loading</h1>;
+	}
+	while (error) {
+		return <h1>{error}</h1>;
+	}
+
 	return (
 		<div className="w-1/3">
 			<div className="flex justify-center">

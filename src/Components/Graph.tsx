@@ -12,11 +12,11 @@ import {
 	ResponsiveContainer,
 } from "recharts";
 import { priceAndDateData } from "../helpers/index";
+import { AppCtx } from "../context/coinDataContext";
 
-const coinValue = "bitcoin";
 const defaultPosts: IStock[] = [];
 
-function StockPrice() {
+function Graph() {
 	const [posts, setPosts]: [
 		IStock[],
 		(posts: IStock[]) => void
@@ -29,6 +29,10 @@ function StockPrice() {
 		string,
 		(error: string) => void
 	] = React.useState("");
+
+	const appContext = React.useContext(AppCtx);
+	const coinValue =
+		appContext?.coinName.toLocaleLowerCase();
 
 	React.useEffect(() => {
 		const abortController = new AbortController();
@@ -46,7 +50,7 @@ function StockPrice() {
 				}) => {
 					const error =
 						ex.code === "ECONNABORTED"
-							? "A timeout has occurred"
+							? "A timeout has occurred please refresh the page"
 							: ex.response.status === 404
 							? "Resource Not found"
 							: "An unexpected error has occurred";
@@ -57,22 +61,23 @@ function StockPrice() {
 		return () => {
 			abortController.abort();
 		};
-	}, []);
+	}, [coinValue]);
 
 	const newD = priceAndDateData(posts);
 
-	{
-		loading && <h1>Loading</h1>;
+	while (loading) {
+		return <h1>Loading</h1>;
 	}
-	{
-		error && <h1>{error}</h1>;
+	while (error) {
+		return <h1>{error}</h1>;
 	}
 
-	//TODO Add types for graph
 	return (
 		<div className="w-2/3 flex-col max-h-screen relative">
 			<div className="w-full  flex justify-center pb-2 h-2/8">
-				<h1 className="text-4xl"> Header </h1>
+				<h1 className="text-4xl">
+					{appContext?.coinName}
+				</h1>
 			</div>
 			<div className="w-full flex justify-center ">
 				<ResponsiveContainer
@@ -125,4 +130,4 @@ function StockPrice() {
 	);
 }
 
-export default StockPrice;
+export default Graph;

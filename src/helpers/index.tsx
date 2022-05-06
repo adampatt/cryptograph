@@ -1,5 +1,4 @@
 import { IStock } from "../@types/stocklist";
-import { ICoinList } from "../@types/coinList";
 
 export const priceAndDateData = (
 	posts: IStock[]
@@ -20,31 +19,8 @@ export const dataTransform = (ds: any) => {
 			day: new Date(ds[0][i][0])
 				.toLocaleString()
 				.slice(0, 8),
-			price: Math.trunc(ds[0][i][1]),
+			price: ds[0][i][1].toFixed(2),
 		};
 	}
 	return final;
-};
-
-// export const coinListName = (
-// 	data: ICoinList[]
-// ) => {
-// 	let result = [];
-// 	for (let val of Object.values(data)) {
-// 		let coinName = val.name;
-// 		result.push(coinName);
-// 	}
-// 	return result;
-// };
-
-export const coinListName: (
-	data: Array<number>[]
-) => Array<number>[] = function (
-	data: Array<number>[]
-): Array<number>[] {
-	let result = [];
-	for (let val of Object.values(data)) {
-		result.push(val);
-	}
-	return result;
 };
